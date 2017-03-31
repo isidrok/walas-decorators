@@ -6,7 +6,7 @@ export const summary = function(...params) {
         validateKey(key);
         let source = getSource(descriptor);
         if (source != 'method') throw new SyntaxError(`@summary() can only be used on methods`)
-        setMeta(target, `$methods.${key}.summarys`, params[0]);
+        setMeta(target, `$methods.${key}.summary`, params[0]);
     };
 }
 
