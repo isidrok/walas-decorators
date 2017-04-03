@@ -1,5 +1,5 @@
-import { setMeta } from '../api';
-import { getSource } from './helpersource';
+import { setMeta } from 'walas-meta-api';
+import { getSource } from '../utils';
 export const summary = function(...params) {
     return function(target, key, descriptor) {
         

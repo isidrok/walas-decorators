@@ -1,4 +1,4 @@
-import { setMeta } from '../api';
+import { setMeta } from 'walas-meta-api';
 import { getSource, validateArgs, validateSource } from '../utils';
 
 export const setVerbsMeta = function (target, key, descriptor, verb, params) {

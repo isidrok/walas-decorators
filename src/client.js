@@ -1,7 +1,7 @@
 import { description, path, get } from './decorators';
 
-@path('class client')
-@description('entity client')
+@path('/clients')
+@description('client entity')
 class Client {
 
     @description('id of the client')
