@@ -1,19 +1,12 @@
 // Specifies the description of
-// a class, method or property.
-import { setMeta } from 'walas-meta-api';
-import { getSource, validateArgs } from '../utils';
 
-export const description = function (...params) {
-    return function (target, key, descriptor) {
-        validateArgs('Target does not exist', target);
-        let source = getSource(descriptor);
-        if (source === 'class')
-            setMeta(target, 'description', params[0]);
-        else {
-            validateArgs('Key does not exist', key);
-            let container = (source === 'method' ? 'methods' : 'properties');
-            setMeta(target, `${container}.${key}.description`, params[0]);
-        }
-    };
+
+
+let source = getSource(descriptor);
+let key  = 'description';
+if(source!=='class'){
+   let container = (source === 'method' ? 'methods' : 'properties');
+   key = `${container}.${key}.description`
 }
+setMeta(target,key,params[0]);
 
