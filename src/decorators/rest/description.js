@@ -1,10 +1,11 @@
-// Specifies the description of
-// a class, method or property.
+/**
+ * Specifies the description of a class, method or property.
+ */
 import { setMeta } from 'walas-meta-api';
 import { getSource, validateArgs } from '../utils';
 
-export const description = function (...params) {
-    return function (target, key, descriptor) {
+export const description = function(...params) {
+    return function(target, key, descriptor) {
         validateArgs('Target does not exist', target);
         let source = getSource(descriptor);
         if (source === 'class')
@@ -16,4 +17,3 @@ export const description = function (...params) {
         }
     };
 }
-

@@ -1,5 +1,9 @@
+/**
+ * Specifies the summary of a method.
+ */
 import { setMeta } from 'walas-meta-api';
 import { getSource, validateSource, validateArgs } from '../utils';
+
 export const summary = function(...params) {
     return function(target, key, descriptor) {
         validateArgs(null, target, key, descriptor);
