@@ -1,7 +1,7 @@
 {
-    "name": "example",
+    "name": "walas-decorators",
     "version": "0.0.0",
-    "description": "Test with decorators and swaggerUI",
+    "description": "",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,6 +18,6 @@
         "onchange": "^3.2.1"
     },
     "dependencies": {
-        "pluralize": "^4.0.0"
+        "walas-meta-api": "https://github.com/isidrok/walas-meta-api"
     }
 }
