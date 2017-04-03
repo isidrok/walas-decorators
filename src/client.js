@@ -10,6 +10,7 @@ class Client {
     fullName;
 
     @get('/:id?')
+    @description()
     searchClientById(id) {
         console.log(`searching client with id ${id}`);
     }
