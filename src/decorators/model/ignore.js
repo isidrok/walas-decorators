@@ -1,9 +1,8 @@
+//flags an attribute as ignored
 import { setMeta } from 'walas-meta-api';
-import { getSource, validateArgs } from '../utils';
-
-export const ignore = function (...params) {
-    return function (target, key, descriptor) {
-        let source = getSource(descriptor);
+export const ignore = function () {
+    return function (target, key) {
+        //TODO: check if source === 'property'
         setMeta(target, `properties.${key}.ignore`, true);
     };
 }

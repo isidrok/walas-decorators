@@ -1,10 +1,9 @@
+//contains different information for modelling the entity 
 import { setMeta } from 'walas-meta-api';
-import { getSource, validateArgs } from '../utils';
-
 export const entity = function (...params) {
-    return function (target, key, descriptor) {
-        let source = getSource(descriptor);
-            setMeta(target, 'entity', params);
+    return function (target) {
+        //TODO: check if src === 'class'
+        setMeta(target, 'entity', params[0]);
     };
 }
 

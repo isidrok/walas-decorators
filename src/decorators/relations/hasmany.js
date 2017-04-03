@@ -1,3 +1,4 @@
+// recive una entidad, client hasMany(factura)
 import { setMeta } from 'walas-meta-api';
 import { getSource, validateArgs } from '../utils';
 
