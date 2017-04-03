@@ -1,9 +1,8 @@
+//adds the key to the collection of ids of the class
 import { setMeta } from 'walas-meta-api';
-import { getSource, validateArgs } from '../utils';
-
-export const id = function (...params) {
-    return function (target, key, descriptor) {
-        let source = getSource(descriptor);
-        setMeta(target, `properties.${key}.id`, true);
+export const id = function () {
+    return function (target, key) {
+        //TODO: check if src === 'property'
+        setMeta(target, `ids.${key}`, true);
     };
 }
