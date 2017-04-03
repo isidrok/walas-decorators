@@ -2,20 +2,19 @@ import { entity, property, id, ignore } from '../decorators/model';
 import { hasMany, hasOne, manyToMany } from '../decorators/relations';
 import { get, description, param, params, summary, path, response, responses } from '../decorators/rest';
 
-@entity({ table: 'STUDENTS', provider: 'sqlserver' })
-@manyToMany('Course', 'studentCourses')
+@entity({ schema: 'Schema', table: 'STUDENTS', provider: 'sqlserver' })
 @path('./students')
 export class Student {
 
     @id() @property({ name: 'ID', type: 'int' })
     id;
-    @property({ name: 'USERNAME', type: 'varchar', length: 50 })
+    @property({ name: 'USERNAME', type: 'string', dbtype: 'varchar', length: 50 })
     username;
     @ignore() @property({ name: 'PASSWORD', type: 'varchar', length: 50 })
     password;
-    @hasMany('Course')
+    @hasMany({ name: 'Course', provider: 'mysql' }) @manyToMany({ name: 'Course', destination: 'studentCourses', provider: 'mysql' })
     courses;
-    @hasOne('Group')
+    @hasOne({ name: 'Group', provider: 'sqlserver' })
     group;
 
     @get('/:id?') @param('id') @description('search student by id') @responses({ '200': 'ok', '400': 'error' })

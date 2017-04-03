@@ -1,4 +1,4 @@
-//usage: @entity({table:'CLIENT', provider:'mysql'}) class Client{...}
+//usage: @entity({schema: 'Schema', table:'CLIENT', provider:'mysql'}) class Client{...}
 import { onlyOnClasses } from '../utils';
 import { setMeta } from 'walas-meta-api';
 export const entity = function (...params) {
