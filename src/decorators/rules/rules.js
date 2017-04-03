@@ -7,3 +7,4 @@ export const rules = function (...params) {
         setMeta(target, `properties.${key}.rules`, params);
     };
 }
+

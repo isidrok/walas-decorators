@@ -4,7 +4,5 @@ export * from './verbs';
 export * from './summary';
 export * from './param';
 export * from './response';
-export * from './name';
-export * from './type';
 export * from './params';
 export * from './responses';

@@ -18,7 +18,7 @@ class Client {
     searchClientById(id) {
         console.log(`searching client with id ${id}`);
     }
-
+    
     @get('/:name?')
     @summary('this is a little summary')
     @param({ name: 'string', required: 'boolean' })
