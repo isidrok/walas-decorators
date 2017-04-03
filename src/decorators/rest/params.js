@@ -1,10 +1,10 @@
+//usage: @params('name','age') searchClientByNameAndAge(name,age){...}
 import { setMeta } from 'walas-meta-api';
-import { getSource, validateSource, validateArgs } from '../utils';
-export const params = function(...params) {
-    return function(target, key, descriptor) {
-        validateArgs(null, target, key, descriptor);
-        let source = getSource(descriptor);
-        validateSource(source, `@params can only be used on methods`, 'method');
+import { onlyOnMethods } from '../utils';
+export const params = function (...params) {
+    return function (target, key, descriptor) {
+        onlyOnMethods(descriptor, 'params');
         setMeta(target, `methods.${key}.params`, params);
+       //TODO: maybe params should be an array
     };
 }

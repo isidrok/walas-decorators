@@ -1,10 +1,10 @@
+//usage: @responses( {200:'Ok'}, {400:'Error'}) searchClientById(id){...}
 import { setMeta } from 'walas-meta-api';
-import { getSource, validateSource, validateArgs } from '../utils';
+import { onlyOnMethods } from '../utils';
 export const responses = function(...params) {
     return function(target, key, descriptor) {
-        validateArgs(null, target, key, descriptor);
-        let source = getSource(descriptor);
-        validateSource(source, `@responses can only be used on methods`, 'method');
+        onlyOnMethods(descriptor, 'responses');
         setMeta(target, `methods.${key}.responses`, params);
+        //TODO: can be overwritten with @param, think better implementation
     };
 }
