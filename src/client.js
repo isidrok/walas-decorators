@@ -1,5 +1,4 @@
 import { description, path, get } from './decorators';
-import { META } from './api/meta';
 
 @path('class client')
 @description('entity client')
@@ -11,7 +10,6 @@ class Client {
     fullName;
 
     @get('/:id?')
-        //@post('string')
     searchClientById(id) {
         console.log(`searching client with id ${id}`);
     }

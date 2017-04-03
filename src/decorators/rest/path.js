@@ -1,14 +1,11 @@
 import { setMeta } from '../api';
-import { getSource } from './helpersource';
+import { getSource, validateArgs, validateSource } from '../utils';
 export const path = function(...params) {
     return function(target, key, descriptor) {
-        validateTarget(target);
+        validateArgs(null,target);
         let source = getSource(descriptor);
-        if (source != 'class') throw new SyntaxError('@path() can only bu used in classes')
-        setMeta(target, `${path.name}`, params[0])
+        validateSource(source,'@path can only be used on classes','class')
+        setMeta(target, 'path', params[0])
     };
 }
 
-function validateTarget(target) {
-    if (!target) throw new SyntaxError('Target does not exist');
-}

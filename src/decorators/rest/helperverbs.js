@@ -1,18 +1,10 @@
 import { setMeta } from '../api';
-import { getSource } from './helpersource';
+import { getSource, validateArgs, validateSource } from '../utils';
 
-export const setVerbsMeta = function(target, key, descriptor, verb, params) {
-    validateTarget(target);
-    validateKey(key);
+export const setVerbsMeta = function (target, key, descriptor, verb, params) {
+    validateArgs(null, target, key, descriptor, verb, params);
     let source = getSource(descriptor);
-    if (source != 'method') throw new SyntaxError(`@${verb}() can only be used on methods`)
-    setMeta(target, `methods.${key}.~${verb}`, params[0])
+    validateSource(source, `@${verb} can only be used on methods`, 'method');
+    setMeta(target, `methods.${key}.${verb}`, params[0])
 }
 
-function validateTarget(target) {
-    if (!target) throw new SyntaxError('Target does not exist');
-}
-
-function validateKey(key) {
-    if (!key) throw new SyntaxError('Key does not exist');
-}
