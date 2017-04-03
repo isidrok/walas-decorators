@@ -3,8 +3,8 @@
 //or: @description('dni of the client') dni;
 import { setMeta } from 'walas-meta-api';
 import { getSource } from '../utils';
-export const description = function (...params) {
-    return function (target, key, descriptor) {
+export const description = function(...params) {
+    return function(target, key, descriptor) {
         let source = getSource(descriptor);
         let container = (source === 'method' ? 'methods' : 'properties');
         let keys = source === 'class' ? 'description' : `${container}.${key}.description`;
