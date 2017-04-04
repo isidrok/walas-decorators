@@ -9,7 +9,7 @@ export const getEntities = function (dbContext, instance) {
 function parseEntities(entities) {
     let obj = {};
     entities.forEach(entity => {
-        obj[entity.id] = entity.meta;
+        obj[entity.id] = Object.assign({},entity.meta);
     });
     return obj;
 }
