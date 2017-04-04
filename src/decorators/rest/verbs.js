@@ -24,7 +24,7 @@ export const Post = function(...params) {
     };
 }
 
-export const put = function(...params) {
+export const Put = function(...params) {
     return function(target, key, descriptor) {
         setVerbsMeta(target, key, descriptor, 'put', params);
     };

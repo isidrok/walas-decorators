@@ -1,4 +1,4 @@
-//usage: @rules(required,{max:50},notBlank) email;
+//usage: @rules(required,[max,50],notBlank) email;
 import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
