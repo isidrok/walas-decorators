@@ -2,7 +2,7 @@
 //or: @id(id1,id2) class Client {...}
 import { notOnMethods } from '../../utils';
 import { setMeta } from '../../api';
-export const id = function (...params) {
+export const Id = function (...params) {
     return function (target, key, descriptor) {
         notOnMethods(descriptor, 'id');
         let values = params || [key];

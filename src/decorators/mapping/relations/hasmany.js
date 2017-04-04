@@ -1,7 +1,7 @@
 // usage: class Client { @hasMany(Bill) bills; ...}
 import { setMeta } from '../../api';
 import { onlyOnProperties } from '../../utils';
-export const hasMany = function (...params) {
+export const HasMany = function (...params) {
     return function (target, key, descriptor) {
         onlyOnProperties(descriptor, 'hasMany');
         setMeta(target, `properties.${key}.hasMany`, params[0]);
