@@ -1,5 +1,5 @@
 //usage: @notBlank() password;
-import { setMeta } from 'walas-meta-api';
+import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
 export const notBlank = function(...params) {

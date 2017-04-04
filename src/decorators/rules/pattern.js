@@ -1,6 +1,6 @@
 //usage: @pattern('id%',null) id;
 //usage: @pattern('$%&','') name;
-import { setMeta } from 'walas-meta-api';
+import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
 export const pattern = function(...params) {

@@ -1,5 +1,5 @@
 //usage: @path('/clients') class Client {...}
-import { setMeta } from 'walas-meta-api';
+import { setMeta } from '../api';
 import { onlyOnClasses } from '../utils';
 export const path = function (...params) {
     return function (target, key, descriptor) {

@@ -1,6 +1,6 @@
 //usage: @index(index1, {field: _field, order: _order}) class Client{...}
 import { onlyOnClasses } from '../../utils';
-import { setMeta } from 'walas-meta-api';
+import { setMeta } from '../../../api';
 export const index = function (...params) {
     return function (target, key, descriptor) {
         onlyOnClasses(descriptor, 'index');

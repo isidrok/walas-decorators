@@ -1,5 +1,5 @@
 //usage: @param('id') searchClientById(id){...}
-import { setMeta } from 'walas-meta-api';
+import { setMeta } from '../api';
 import { onlyOnMethods } from '../utils';
 export const param = function (...params) {
     return function (target, key, descriptor) {
