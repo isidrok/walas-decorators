@@ -1,5 +1,4 @@
-import { entity, property, id, ignore } from '../decorators/model';
-import { hasMany, hasOne, manyToMany } from '../decorators/relations';
+import { entity, property, id, ignore, hasMany, hasOne, manyToMany } from '../decorators/mapping';
 import { get, description, param, params, summary, path, response, responses } from '../decorators/rest';
 
 @entity({ schema: 'Schema', table: 'STUDENTS', provider: 'sqlserver' })
@@ -17,7 +16,7 @@ export class Student {
     @hasOne({ name: 'Group', provider: 'sqlserver' })
     group;
 
-    @get('/:id?') @param('id') @description('search student by id') @responses({ '200': 'ok', '400': 'error' })
+    @get('/:id?') @param('id') @response('500','500Error') @description('search student by id') @responses({ '200': 'ok', '400': 'error' })
     searchStudentById(id) {
         console.log(`Searching student with id: ${id}`);
     }

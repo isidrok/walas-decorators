@@ -7,7 +7,7 @@ export const description = function(...params) {
     return function(target, key, descriptor) {
         let source = getSource(descriptor);
         let container = (source === 'method' ? 'methods' : 'properties');
-        let keys = source === 'class' ? 'description' : `${container}.${key}.description`;
+        let keys = source === 'class' ? 'class.description' : `${container}.${key}.description`;
         setMeta(target, keys, params[0]);
     }
 };
