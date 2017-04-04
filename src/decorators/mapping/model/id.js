@@ -5,7 +5,7 @@ import { setMeta } from '../../api';
 export const Id = function (...params) {
     return function (target, key, descriptor) {
         notOnMethods(descriptor, 'id');
-        let values = params || [key];
+        let values = params.length > 0? params : [key];
         values.forEach(value =>{
             setMeta(target, `class.ids`, value, true);
         });

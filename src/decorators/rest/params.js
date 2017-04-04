@@ -1,9 +1,11 @@
 //usage: @Params('name','age') searchClientByNameAndAge(name,age){...}
 import { setMeta } from '../api';
 import { onlyOnMethods } from '../utils';
-export const Params = function(...params) {
-    return function(target, key, descriptor) {
+export const Params = function (...params) {
+    return function (target, key, descriptor) {
         onlyOnMethods(descriptor, 'Params');
-        setMeta(target, `methods.${key}.params`, params, true);
+        params.forEach(param => {
+            setMeta(target, `methods.${key}.params`, param, true);
+        });
     };
 }

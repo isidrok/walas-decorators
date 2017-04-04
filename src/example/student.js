@@ -2,25 +2,25 @@ import { Entity, Property, Id, Ignore, HasMany, HasOne, ManyToMany } from '../de
 import { Get, Description, Param, Params, Summary, Path, Response, Responses } from '../decorators/rest';
 
 @Entity({ schema: 'Schema', table: 'STUDENTS', provider: 'sqlserver' })
-@Path('./students')
+@Path('./students') 
 export class Student {
 
     @Id() @Property({ name: 'ID', type: 'int' })
     id;
-    @property({ name: 'USERNAME', type: 'string', dbtype: 'varchar', length: 50 })
+    @Property({ name: 'USERNAME', type: 'string', dbtype: 'varchar', length: 50 })
     username;
-    @ignore() @property({ name: 'PASSWORD', type:'sting',dbtype: 'varchar', length: 50 })
+    @Ignore() @Property({ name: 'PASSWORD', type:'sting',dbtype: 'varchar', length: 50 })
     password;
-    @hasMany({ name: 'Course', provider: 'mysql' }) @manyToMany({ name: 'Course', destination: 'studentCourses', provider: 'mysql' })
+    @HasMany({ name: 'Course', provider: 'mysql' }) @ManyToMany({ name: 'Course', destination: 'studentCourses', provider: 'mysql' })
     courses;
-    @hasOne({ name: 'Group', provider: 'sqlserver' })
+    @HasOne({ name: 'Group', provider: 'sqlserver' })
     group;
 
      
-    @get('/') @param('id2')
-    @param({'id':{in:'query'}})
-    @description('search student by id')
-    @response('500','500Error') @responses({ '200': 'ok', '400': 'error' })
+    @Get('/') @Param('id2')
+    @Param({'id':{in:'query'}})
+    @Description('search student by id')
+    @Response('500','500Error') @Responses({ '200': 'ok', '400': 'error' })
     searchStudentById(id) {
         console.log(`Searching student with id: ${id}`);
     }
