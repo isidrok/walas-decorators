@@ -5,6 +5,6 @@ import { onlyOnProperties } from '../utils';
 export const NotEmpty = function() {
     return function(target, key, descriptor) {
         onlyOnProperties(descriptor, 'NotEmpty');
-        setMeta(target, `properties.${key}.NotEmpty`, true);
+        setMeta(target, `properties.${key}.notEmpty`, true);
     };
 }

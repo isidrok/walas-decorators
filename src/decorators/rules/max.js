@@ -5,6 +5,6 @@ import { onlyOnProperties } from '../utils';
 export const Max = function(...params) {
     return function(target, key, descriptor) {
         onlyOnProperties(descriptor, 'Max');
-        setMeta(target, `properties.${key}.Max`, params[0]);
+        setMeta(target, `properties.${key}.max`, params[0]);
     };
 }

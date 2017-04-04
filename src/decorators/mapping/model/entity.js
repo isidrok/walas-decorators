@@ -4,6 +4,6 @@ import { setMeta } from '../../../api';
 export const Entity = function(...params) {
     return function(target, key, descriptor) {
         onlyOnClasses(descriptor, 'Entity');
-        setMeta(target, 'class.Entity', params[0]);
+        setMeta(target, 'class.entity', params[0]);
     };
 }

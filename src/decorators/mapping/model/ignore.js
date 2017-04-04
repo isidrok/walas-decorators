@@ -5,6 +5,6 @@ export const Ignore = function() {
     return function(target, key, descriptor) {
         onlyOnProperties(descriptor, 'Ignore');
         //Properties + methods?
-        setMeta(target, `properties.${key}.Ignore`, true);
+        setMeta(target, `properties.${key}.ignore`, true);
     };
 }

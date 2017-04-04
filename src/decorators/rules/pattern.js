@@ -6,6 +6,6 @@ import { onlyOnProperties } from '../utils';
 export const Pattern = function(...params) {
     return function(target, key, descriptor) {
         onlyOnProperties(descriptor, 'Pattern');
-        setMeta(target, `properties.${key}.Pattern`, params);
+        setMeta(target, `properties.${key}.pattern`, params);
     };
 }

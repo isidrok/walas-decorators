@@ -5,6 +5,6 @@ import { onlyOnProperties } from '../utils';
 export const Past = function() {
     return function(target, key, descriptor) {
         onlyOnProperties(descriptor, 'Past');
-        setMeta(target, `properties.${key}.Past`, true);
+        setMeta(target, `properties.${key}.past`, true);
     };
 }

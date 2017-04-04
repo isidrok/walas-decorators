@@ -4,6 +4,6 @@ import { onlyOnMethods } from '../utils';
 export const Response = function(...params) {
     return function(target, key, descriptor) {
         onlyOnMethods(descriptor, 'Response');
-        setMeta(target, `methods.${key}.Responses.${params[0]}`, params[1]);
+        setMeta(target, `methods.${key}.responses.${params[0]}`, params[1]);
     };
 }

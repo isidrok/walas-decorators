@@ -5,6 +5,6 @@ import { onlyOnProperties } from '../utils';
 export const Range = function(...params) {
     return function(target, key, descriptor) {
         onlyOnProperties(descriptor, 'Range');
-        setMeta(target, `properties.${key}.Range`, params[0]);
+        setMeta(target, `properties.${key}.range`, params[0]);
     };
 }

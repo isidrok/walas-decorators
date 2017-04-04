@@ -4,6 +4,6 @@ import { setMeta } from '../../api';
 export const Property = function(...params) {
     return function(target, key, descriptor) {
         onlyOnProperties(descriptor, 'Property');
-        setMeta(target, `properties.${key}.Property`, params[0]);
+        setMeta(target, `properties.${key}.property`, params[0]);
     };
 }

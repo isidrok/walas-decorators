@@ -1,11 +1,11 @@
-import { entity, property, id, ignore, hasMany, hasOne, manyToMany } from '../decorators/mapping';
-import { get, description, param, params, summary, path, response, responses } from '../decorators/rest';
+import { Entity, Property, Id, Ignore, HasMany, HasOne, ManyToMany } from '../decorators/mapping';
+import { Get, Description, Param, Params, Summary, Path, Response, Responses } from '../decorators/rest';
 
-@entity({ schema: 'Schema', table: 'STUDENTS', provider: 'sqlserver' })
-@path('./students')
+@Entity({ schema: 'Schema', table: 'STUDENTS', provider: 'sqlserver' })
+@Path('./students')
 export class Student {
 
-    @id() @property({ name: 'ID', type: 'int' })
+    @Id() @Property({ name: 'ID', type: 'int' })
     id;
     @property({ name: 'USERNAME', type: 'string', dbtype: 'varchar', length: 50 })
     username;

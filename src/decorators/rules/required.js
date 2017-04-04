@@ -5,6 +5,6 @@ import { onlyOnProperties } from '../utils';
 export const Required = function() {
     return function(target, key, descriptor) {
         onlyOnProperties(descriptor, 'Required');
-        setMeta(target, `properties.${key}.Required`, true);
+        setMeta(target, `properties.${key}.required`, true);
     };
 }

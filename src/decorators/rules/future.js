@@ -5,6 +5,6 @@ import { onlyOnProperties } from '../utils';
 export const Future = function() {
     return function(target, key, descriptor) {
         onlyOnProperties(descriptor, 'Future');
-        setMeta(target, `properties.${key}.Future`, 'true');
+        setMeta(target, `properties.${key}.future`, 'true');
     };
 }

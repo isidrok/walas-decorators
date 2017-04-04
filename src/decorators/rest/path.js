@@ -4,6 +4,6 @@ import { onlyOnClasses } from '../utils';
 export const Path = function(...params) {
     return function(target, key, descriptor) {
         onlyOnClasses(descriptor, 'Path')
-        setMeta(target, 'class.Path', params[0])
+        setMeta(target, 'class.path', params[0])
     };
 }
