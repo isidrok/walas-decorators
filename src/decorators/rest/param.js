@@ -1,9 +1,9 @@
-//usage: @param('id') searchClientById(id){...}
+//usage: @Param('id') searchClientById(id){...}
 import { setMeta } from '../api';
 import { onlyOnMethods } from '../utils';
-export const param = function (...params) {
-    return function (target, key, descriptor) {
-        onlyOnMethods(descriptor, 'param');
-        setMeta(target, `methods.${key}.params`, params[0], true);
+export const Param = function(...params) {
+    return function(target, key, descriptor) {
+        onlyOnMethods(descriptor, 'Param');
+        setMeta(target, `methods.${key}.Params`, params[0], true);
     };
 }

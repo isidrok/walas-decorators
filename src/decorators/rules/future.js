@@ -1,10 +1,10 @@
-//usage: @future() date;
+//usage: @Future() date;
 import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
-export const future = function(...params) {
+export const Future = function(...params) {
     return function(target, key, descriptor) {
-        onlyOnProperties(descriptor, 'future');
-        setMeta(target, `properties.${key}.future`, 'true');
+        onlyOnProperties(descriptor, 'Future');
+        setMeta(target, `properties.${key}.Future`, 'true');
     };
 }

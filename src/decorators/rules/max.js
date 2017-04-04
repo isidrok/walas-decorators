@@ -1,10 +1,10 @@
-//usage: @max(50) password;
+//usage: @Max(50) password;
 import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
-export const max = function(...params) {
+export const Max = function(...params) {
     return function(target, key, descriptor) {
-        onlyOnProperties(descriptor, 'max');
-        setMeta(target, `properties.${key}.max`, params[0]);
+        onlyOnProperties(descriptor, 'Max');
+        setMeta(target, `properties.${key}.Max`, params[0]);
     };
 }

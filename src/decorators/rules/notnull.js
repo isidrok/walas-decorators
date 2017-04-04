@@ -1,10 +1,10 @@
-//usage: @notNull() id;
+//usage: @NotNull() id;
 import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
-export const notNull = function(...params) {
+export const NotNull = function(...params) {
     return function(target, key, descriptor) {
-        onlyOnProperties(descriptor, 'notNull');
-        setMeta(target, `properties.${key}.notNull`, 'true');
+        onlyOnProperties(descriptor, 'NotNull');
+        setMeta(target, `properties.${key}.NotNull`, 'true');
     };
 }

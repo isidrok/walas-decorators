@@ -1,27 +1,26 @@
 import { setVerbsMeta } from './helperverbs';
 
-// TODO: delete is a reserved word. Look for a good name for this decorator
-export const remove = function(...params) {
+export const Delete = function(...params) {
     return function(target, key, descriptor) {
-        setVerbsMeta(target, key, descriptor, 'remove', params);
+        setVerbsMeta(target, key, descriptor, 'Delete', params);
     };
 }
 
-export const get = function(...params) {
+export const Get = function(...params) {
     return function(target, key, descriptor) {
-        setVerbsMeta(target, key, descriptor, 'get', params);
+        setVerbsMeta(target, key, descriptor, 'Get', params);
     };
 }
 
-export const patch = function(...params) {
+export const Patch = function(...params) {
     return function(target, key, descriptor) {
-        setVerbsMeta(target, key, descriptor, 'patch', params);
+        setVerbsMeta(target, key, descriptor, 'Patch', params);
     };
 }
 
-export const post = function(...params) {
+export const Post = function(...params) {
     return function(target, key, descriptor) {
-        setVerbsMeta(target, key, descriptor, 'post', params);
+        setVerbsMeta(target, key, descriptor, 'Post', params);
     };
 }
 

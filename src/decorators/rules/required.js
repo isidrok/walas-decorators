@@ -1,10 +1,10 @@
-//usage: @required() phone;
+//usage: @Required() phone;
 import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
-export const required = function(...params) {
+export const Required = function(...params) {
     return function(target, key, descriptor) {
-        onlyOnProperties(descriptor, 'required');
-        setMeta(target, `properties.${key}.required`, 'true');
+        onlyOnProperties(descriptor, 'Required');
+        setMeta(target, `properties.${key}.Required`, 'true');
     };
 }

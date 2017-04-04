@@ -1,10 +1,10 @@
-//usage: @notBlank() password;
+//usage: @NotBlank() password;
 import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
-export const notBlank = function(...params) {
+export const NotBlank = function(...params) {
     return function(target, key, descriptor) {
-        onlyOnProperties(descriptor, 'notBlank');
-        setMeta(target, `properties.${key}.notBlank`, 'true');
+        onlyOnProperties(descriptor, 'NotBlank');
+        setMeta(target, `properties.${key}.NotBlank`, 'true');
     };
 }

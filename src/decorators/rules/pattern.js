@@ -1,11 +1,11 @@
-//usage: @pattern('id%',null) id;
-//usage: @pattern('$%&','') name;
+//usage: @Pattern('id%',null) id;
+//usage: @Pattern('$%&','') name;
 import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
-export const pattern = function(...params) {
+export const Pattern = function(...params) {
     return function(target, key, descriptor) {
-        onlyOnProperties(descriptor, 'pattern');
-        setMeta(target, `properties.${key}.pattern`, params);
+        onlyOnProperties(descriptor, 'Pattern');
+        setMeta(target, `properties.${key}.Pattern`, params);
     };
 }

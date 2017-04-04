@@ -1,10 +1,10 @@
-//usage: @notEmpty() id;
+//usage: @NotEmpty() id;
 import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
-export const notEmpty = function(...params) {
+export const NotEmpty = function(...params) {
     return function(target, key, descriptor) {
-        onlyOnProperties(descriptor, 'notEmpty');
-        setMeta(target, `properties.${key}.notEmpty`, 'true');
+        onlyOnProperties(descriptor, 'NotEmpty');
+        setMeta(target, `properties.${key}.NotEmpty`, 'true');
     };
 }

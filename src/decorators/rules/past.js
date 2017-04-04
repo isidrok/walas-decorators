@@ -1,10 +1,10 @@
-//usage: @past() date;
+//usage: @Past() date;
 import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
-export const past = function(...params) {
+export const Past = function(...params) {
     return function(target, key, descriptor) {
-        onlyOnProperties(descriptor, 'past');
-        setMeta(target, `properties.${key}.past`, 'true');
+        onlyOnProperties(descriptor, 'Past');
+        setMeta(target, `properties.${key}.Past`, 'true');
     };
 }

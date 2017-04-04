@@ -1,11 +1,11 @@
-//usage: @length(65) name;
-//we assume it is the longest length
+//usage: @Length(65) name;
+//we assume it is the longest Length
 import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
-export const length = function(...params) {
+export const Length = function(...params) {
     return function(target, key, descriptor) {
-        onlyOnProperties(descriptor, 'length');
-        setMeta(target, `properties.${key}.length`, params[0]);
+        onlyOnProperties(descriptor, 'Length');
+        setMeta(target, `properties.${key}.Length`, params[0]);
     };
 }

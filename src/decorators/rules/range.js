@@ -1,10 +1,10 @@
-//usage: @range({min:15,max:70}) username;
+//usage: @Range({min:15,max:70}) username;
 import { setMeta } from '../api';
 import { onlyOnProperties } from '../utils';
 
-export const range = function(...params) {
+export const Range = function(...params) {
     return function(target, key, descriptor) {
-        onlyOnProperties(descriptor, 'range');
-        setMeta(target, `properties.${key}.range`, params[0]);
+        onlyOnProperties(descriptor, 'Range');
+        setMeta(target, `properties.${key}.Range`, params[0]);
     };
 }

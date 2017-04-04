@@ -10,3 +10,4 @@ export * from './future.js';
 export * from './past.js';
 export * from './range.js';
 export * from './pattern.js';
+export * from './validate.js';
