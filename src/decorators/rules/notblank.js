@@ -1,13 +1,10 @@
-/**
- * Specifies that this property can not be blank.
- */
+//usage: @notBlank() password;
 import { setMeta } from 'walas-meta-api';
-import { getSource, validateSource } from '../utils';
+import { onlyOnProperties } from '../utils';
 
 export const notBlank = function(...params) {
     return function(target, key, descriptor) {
-        let source = getSource(descriptor);
-        validateSource(source, `@notBlank can only be used on methods`, 'property');
+        onlyOnProperties(descriptor, 'notBlank');
         setMeta(target, `properties.${key}.notBlank`, 'true');
     };
 }
