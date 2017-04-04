@@ -9,14 +9,18 @@ export class Student {
     id;
     @property({ name: 'USERNAME', type: 'string', dbtype: 'varchar', length: 50 })
     username;
-    @ignore() @property({ name: 'PASSWORD', type: 'varchar', length: 50 })
+    @ignore() @property({ name: 'PASSWORD', type:'sting',dbtype: 'varchar', length: 50 })
     password;
     @hasMany({ name: 'Course', provider: 'mysql' }) @manyToMany({ name: 'Course', destination: 'studentCourses', provider: 'mysql' })
     courses;
     @hasOne({ name: 'Group', provider: 'sqlserver' })
     group;
 
-    @get('/:id?') @param('id') @response('500','500Error') @description('search student by id') @responses({ '200': 'ok', '400': 'error' })
+     
+    @get('/') @param('id2')
+    @param({'id':{in:'query'}})
+    @description('search student by id')
+    @response('500','500Error') @responses({ '200': 'ok', '400': 'error' })
     searchStudentById(id) {
         console.log(`Searching student with id: ${id}`);
     }
