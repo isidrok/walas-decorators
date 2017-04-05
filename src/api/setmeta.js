@@ -2,6 +2,11 @@ import { createMeta } from './createmeta';
 
 export const setMeta = function (target, keys, value, inArray) {
     let meta = createMeta(target);
+    insertMeta(meta, keys, value, inArray);
+}
+
+export const insertMeta = function (meta, keys, value, inArray) {
+    meta = meta || {};
     keys = keys.split('.');
     keys.reduce((pre, cur, index) => {
         if (inArray) {

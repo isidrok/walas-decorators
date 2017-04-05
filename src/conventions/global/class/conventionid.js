@@ -1,6 +1,6 @@
 import { ConventionBase } from '../../conventionbase';
 import { getProperties } from '../../utils';
-import { setMeta } from '../../../api';
+import { insertMeta } from '../../../api';
 export class ConventionId extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);
@@ -9,12 +9,11 @@ export class ConventionId extends ConventionBase {
         return 'id';
     }
     exec() {
-        let ids = this.meta.class && this.meta.class.ids;
-        if (ids) return;
-        let properties = getProperties(this.entity);
-        if (properties.indexOf(this.property()) < 0)
+        let ids = this._meta.class && this._meta.class.ids;
+        //if (ids) return;
+        let properties = getProperties(this._entity);
+        if (properties.indexOf(this.property < 0))
             throw new Error('Entity does not have an id');
-        //TODO new SetMeta that does not require target
-        setMeta(this.entity, 'class.entity.ids', this.property(),true);
+        insertMeta(this._meta, 'class.entity.ids', this.property(),true);
     }
 }

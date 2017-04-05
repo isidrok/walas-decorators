@@ -3,9 +3,6 @@ export const getMetaEntities = function (dbContext) {
     let instance = new dbContext();
     return Object.entries(Object.getOwnPropertyDescriptors(dbContext.prototype))
         .filter(c => typeof c[1].value !== 'function')
-        .map(c => ({ id: c[0], meta: instance[c[0]]._entity.constructor[META] || {} }))
-        .reduce((pre, cur) => {
-            pre[cur.id] = Object.assign({}, cur.meta);
-            return pre;
-        }, {});
+        .map(c => ({ 'entity': instance[c[0]]._entity, 'meta': instance[c[0]]._entity[META] || {} }))
+        .map(c => ({ 'entity': c.entity, 'meta': Object.assign({}, c.meta)}));
 }
