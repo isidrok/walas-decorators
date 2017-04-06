@@ -1,7 +1,12 @@
-import { Id } from '../decorators';
-@Id()
+import { Id, Property, Entity } from '../decorators';
+@Entity({name:'adad'})
 export class Foo {
-    id=null;
+    constructor() {
+    }
+
+    get id() { return this._id }
+
+    get name() {return this._name}
 }
 
 let instance = new Foo();

@@ -1,19 +1,22 @@
 import { ConventionBase } from '../../conventionbase';
 import { getProperties } from '../../utils';
-import { insertMeta } from '../../../api';
+import { insertMeta, getMeta } from '../../../api';
 export class ConventionId extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);
+    }
+    get route() {
+        return 'class.ids';
     }
     get property() {
         return 'id';
     }
     exec() {
-        let ids = this._meta.class && this._meta.class.ids;
-        //if (ids) return;
+        let ids = getMeta(this._meta,this.route);
+        if (ids && ids[0]) return;
         let properties = getProperties(this._entity);
-        if (properties.indexOf(this.property < 0))
+        if (properties.indexOf(this.property) === -1)
             throw new Error('Entity does not have an id');
-        insertMeta(this._meta, 'class.entity.ids', this.property(),true);
+        insertMeta(this._meta, this.route, this.property, true);
     }
 }

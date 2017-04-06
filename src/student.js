@@ -7,8 +7,8 @@ export class Student {
 
     @Id() @Property({ name: 'ID', type: 'int' })
     id;
-    @Property({ name: 'USERNAME', type: 'string', dbtype: 'varchar', length: 50 })
-    username;
+    @Property({length: 20 })
+    description;
     @Ignore() @Property({ name: 'PASSWORD', type:'sting',dbtype: 'varchar', length: 50 })
     password;
     @HasMany({ name: 'Course', provider: 'mysql' }) @ManyToMany({ name: 'Course', destination: 'studentCourses', provider: 'mysql' })
