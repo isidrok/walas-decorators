@@ -1,5 +1,6 @@
 import { ConventionBase } from '../../conventionbase';
 import { insertMeta, getMeta } from '../../../api';
+/*precondition: this gets called after ConventionProperties */
 export class ConventionSerialize extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);
@@ -9,12 +10,12 @@ export class ConventionSerialize extends ConventionBase {
     }
 
     exec() {
-        //get properties from class and then insert in array...
         let properties = getMeta(this._meta, this.properties);
+        let serialize = [];
         Object.keys(properties).forEach(key => {
-            let relation = properties[key].hasMany || properties[key].hasOne;
-            if (relation) insertMeta(this._meta, this.route, relation, true);
+            if(!properties[key].ignore && !properties[key].private)
+                serialize.push[key];
         });
-        insertMeta(this._meta, this.route, this._entity.name, true);
+        insertMeta(this._meta, this.route, serialize);
     }
 }

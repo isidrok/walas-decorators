@@ -2,7 +2,7 @@ import { ConventionBase } from '../../conventionbase';
 import { insertMeta, getMeta } from '../../../api';
 
 /*Precondition: ConventionProperties has been applyed before applying this convention*/
-export class ConventionDescription extends ConventionBase {
+export class ConventionColumnDescription extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);
     }
