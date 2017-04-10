@@ -1,6 +1,13 @@
 import { ConventionBase } from '../../conventionbase';
 import { insertMeta, getMeta } from '../../../api';
 
+/**
+ * If the class is not flagged with 'supressGet' then
+ * the methods get and getAll will be automatically generated
+ * @export
+ * @class ConventionAutoGet
+ * @extends {ConventionBase}
+ */
 export class ConventionAutoGet extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);
@@ -8,28 +15,27 @@ export class ConventionAutoGet extends ConventionBase {
     get generators() {
         return 'class.generators';
     }
-    get get() {
-        return {
+    insertGet() {
+        let get = {
             verb: 'get',
             url: '/:id',
             params: [
                 { id: {} }
             ]
-        }
-    }
-    get getAll() {
-        return { verb: 'get', url:'' }
-    }
-    insertGet() {
+        };
         let property = 'methods.get';
-        insertMeta(this._meta, property, this.get());
+        insertMeta(this._meta, property, get);
     }
-    insertGeAll() {
+    insertGetAll() {
+        let getAll = { verb: 'get', url: '' };
         let property = 'methods.getAll';
-        insertMeta(this._meta, property, this.getAll());
+        insertMeta(this._meta, property, getAll);
     }
     exec() {
-        let supressGet = Object.keys(getMeta(this._meta, this.generators)).filter(c => c === 'supressGet')[0];
+        let supressGet
+        let generators = getMeta(this._meta, this.generators);
+        if (generators)
+            supressGet = Object.keys(generators).filter(c => c === 'supressGet')[0];
         if (supressGet) return;
         this.insertGet();
         this.insertGetAll();
