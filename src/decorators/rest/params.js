@@ -5,7 +5,8 @@ export const Params = function (...params) {
     return function (target, key, descriptor) {
         onlyOnMethods(descriptor, 'Params');
         params.forEach(param => {
-            setMeta(target, `methods.${key}.params`, param, true);
+            let paramName = Object.keys(param)[0];
+            setMeta(target, `methods.${key}.params.${paramName}`, param[paramName]);
         });
     };
 }

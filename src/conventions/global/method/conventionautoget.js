@@ -19,9 +19,7 @@ export class ConventionAutoGet extends ConventionBase {
         let get = {
             verb: 'get',
             url: '/:id',
-            params: [
-                { id: {} }
-            ]
+            params: { id: {} }
         };
         let property = 'methods.get';
         insertMeta(this._meta, property, get);

@@ -4,6 +4,7 @@ import { onlyOnMethods } from '../utils';
 export const Param = function(...params) {
     return function(target, key, descriptor) {
         onlyOnMethods(descriptor, 'Param');
-        setMeta(target, `methods.${key}.params`, params[0], true);
+        let paramName = Object.keys(params[0])[0];
+        setMeta(target, `methods.${key}.params.${paramName}`, params[0][paramName]);
     };
 }

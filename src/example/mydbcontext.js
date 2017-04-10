@@ -11,9 +11,9 @@ import { Foo } from './foo';
 export class MyDbContext extends DbContext {
     constructor() {
         super();
-        this._conventions = [ConventionId, ConventionPath,ConventionQueryable, ConventionProperties, ConventionSerialize, ConventionTable, ConventionColumnDescription,
-            ConventionDecimal, ConventionString, ConventionMethods, ConventionAutoGet, ConventionDescription, ConventionSummary,
-            ConventionDelete, ConventionPatch, ConventionPut, ConventionPost, ConventionGet, ConventionResponses];
+        this._conventions = [ConventionId, ConventionPath, ConventionQueryable, ConventionProperties, ConventionSerialize, ConventionTable, ConventionColumnDescription,
+            ConventionDecimal, ConventionString, ConventionMethods, ConventionDescription, ConventionSummary, 
+            ConventionDelete, ConventionPatch, ConventionPut, ConventionPost, ConventionGet, ConventionParams, ConventionResponses, ConventionAutoGet];
     }
     get Foo() {
         return new DbSet(Foo, this);
