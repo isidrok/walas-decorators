@@ -1,5 +1,6 @@
-import { Id, Property, Entity, Ignore, Private, Description } from '../decorators';
-
+import { Id, Property, Entity, Ignore, Private, Description,HasOne,HasMany, Queryable } from '../decorators';
+import {Bar} from './Bar';
+@Queryable('Bar')
 export class Foo {
     constructor() {
     }
@@ -8,8 +9,12 @@ export class Foo {
 
     @Property({type:'string'})
     get name() {return this._name;}
+    @HasMany('MANY')
 
     get description() {return this._description;}
+
+    @HasOne('Bar')
+    get bar(){return this._bar;}
 
     deleteFoo(a,b,c){return;}
 }

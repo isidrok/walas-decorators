@@ -11,7 +11,7 @@ import { Foo } from './foo';
 export class MyDbContext extends DbContext {
     constructor() {
         super();
-        this._conventions = [ConventionId, ConventionPath, ConventionProperties, ConventionSerialize, ConventionTable, ConventionColumnDescription,
+        this._conventions = [ConventionId, ConventionPath,ConventionQueryable, ConventionProperties, ConventionSerialize, ConventionTable, ConventionColumnDescription,
             ConventionDecimal, ConventionString, ConventionMethods, ConventionAutoGet, ConventionDescription, ConventionSummary,
             ConventionDelete, ConventionPatch, ConventionPut, ConventionPost, ConventionGet, ConventionResponses];
     }
