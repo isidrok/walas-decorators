@@ -1,6 +1,15 @@
 import { ConventionBase } from '../../conventionbase';
 import { insertMeta, getMeta } from '../../../api';
 
+/**
+ * PRECONDITION: gets called after applying ConventionMethods
+ * If the method doesn't have a description then its name
+ * will be used, transforming it from cammel or dash case 
+ * to a phrase starting in upper case.
+ * @export
+ * @class ConventionDescription
+ * @extends {ConventionBase}
+ */
 export class ConventionDescription extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);

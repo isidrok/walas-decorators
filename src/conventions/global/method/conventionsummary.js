@@ -1,6 +1,14 @@
 import { ConventionBase } from '../../conventionbase';
 import { insertMeta, getMeta } from '../../../api';
 
+/**
+ * PRECONDITION: gets called after ConventionDescription
+ * If the method doesn't have a summary then its description
+ * will be used.
+ *  @export
+ * @class ConventionSummary
+ * @extends {ConventionBase}
+ */
 export class ConventionSummary extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);

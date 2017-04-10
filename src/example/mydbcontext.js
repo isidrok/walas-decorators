@@ -2,7 +2,7 @@ import { getMetaEntities } from '../conventions';
 import { DbContext, DbSet } from '../orm';
 import {
     ConventionId, ConventionPath, ConventionQueryable, ConventionSerialize, ConventionTable,
-    ConventionAutoGet, ConventionDelete, ConventionDescription, ConventionGet, ConventionParams,
+    ConventionAutoGet, ConventionDelete, ConventionDescription, ConventionMethods, ConventionGet, ConventionParams,
     ConventionPatch, ConventionPost, ConventionPut, ConventionResponses, ConventionSummary,
     ConventionDecimal, ConventionColumnDescription, ConventionProperties, ConventionString
 } from '../conventions';
@@ -12,7 +12,8 @@ export class MyDbContext extends DbContext {
     constructor() {
         super();
         this._conventions = [ConventionId, ConventionPath, ConventionProperties, ConventionSerialize, ConventionTable, ConventionColumnDescription,
-        ConventionDecimal, ConventionString];
+            ConventionDecimal, ConventionString, ConventionMethods, ConventionAutoGet, ConventionDescription, ConventionSummary,
+            ConventionDelete, ConventionPatch, ConventionPut, ConventionPost, ConventionGet, ConventionResponses];
     }
     get Foo() {
         return new DbSet(Foo, this);

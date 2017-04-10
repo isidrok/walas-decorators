@@ -1,25 +1,29 @@
-/*
-se cogen los params del meta y de la llamada del verbo
-todos los params de la llamada del verbo que estén en los attrs de la clase
-se ponen junto a los del meta, sin duplicarlos y se pone la informacion necesaria
-*/
-
 import { ConventionBase } from '../../conventionbase';
 import { getMeta } from '../../../api';
 
+/**
+ * PRECONDITION: must be called after ConventionMethods, and 
+ * the Conventions 'Get', 'Post', 'Put', 'Patch' and 'Delete'.
+ * Sets the default responses for the methods of according to its verb.
+ * @export
+ * @class ConventionResponses
+ * @extends {ConventionBase}
+ */
 export class ConventionResponses extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);
     }
+    get methods(){
+        return 'methods';
+    }
     get response200() {
-        return { '200': 'OK' };
+        return  'OK' ;
     }
     get response400() {
-        return { '400': 'Bad Request' };
+        return 'Bad Request';
     }
-
     get response404() {
-        return { '404': 'Not Found' };
+        return 'Not Found';
     }
 
     handle(method) {
@@ -30,30 +34,34 @@ export class ConventionResponses extends ConventionBase {
             'get': this.handleGet,
             'delete': this.handleDelete
         }
-        return handlers[method.verb](method);
+        
+        return handlers[method.verb].bind(this)(method);
     }
 
     handleGet(method) {
-        let responses = method.params;
+        let responses = method.responses || {};
         responses['200'] = responses['200'] || this.response200;
         responses['404'] = responses['404'] || this.response404;
+        method.responses = responses;
 
     }
     handlePost(method) {
-        let responses = method.params;
+        let responses = method.responses || {};
         responses['400'] = responses['400'] || this.response400;
-
+        method.responses = responses;
     }
     handlePutPatch(method) {
-        let responses = method.params;
+        let responses = method.responses || {};
         responses['200'] = responses['200'] || this.response200;
         responses['400'] = responses['400'] || this.response400;
         responses['404'] = responses['404'] || this.response404;
+        method.responses = responses;
     }
     handleDelete(method) {
-        let responses = method.params;
+        let responses = method.responses || {};
         responses['200'] = responses['200'] || this.response200;
         responses['404'] = responses['404'] || this.response404;
+        method.responses = responses;
     }
     exec() {
         let methods = getMeta(this._meta, this.methods);

@@ -2,6 +2,7 @@ export * from './conventionautoget';
 export * from './conventiondelete';
 export * from './conventiondescription';
 export * from './conventionget';
+export * from './conventionmethods';
 export * from './conventionparams';
 export * from './conventionpatch';
 export * from './conventionpost';

@@ -1,6 +1,14 @@
 import { ConventionBase } from '../../conventionbase';
 import { insertMeta, getMeta } from '../../../api';
 
+/**
+ * PRECONDITION: gets called after ConventionMethods
+ * Finds all method whose name starts with 'put'
+ * and sets its verb to 'put'
+ * @export
+ * @class ConventionPut
+ * @extends {ConventionBase}
+ */
 export class ConventionPut extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);
@@ -9,9 +17,9 @@ export class ConventionPut extends ConventionBase {
         return 'methods'
     }
     createMethod(method) {
-        let url = '/:' + method.params.map(c => Object.keys(c)[0]).join('/:');
+        //let url = '/:' + method.params.map(c => Object.keys(c)[0]).join('/:');
         method.verb = 'put';
-        method.url = method.url || url;
+        // method.url = method.url || url;
         return method;
     }
     exec() {

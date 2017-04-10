@@ -1,4 +1,4 @@
-import { Id, Property, Entity, Ignore, Private } from '../decorators';
+import { Id, Property, Entity, Ignore, Private, Description } from '../decorators';
 
 export class Foo {
     constructor() {
@@ -10,6 +10,8 @@ export class Foo {
     get name() {return this._name;}
 
     get description() {return this._description;}
+
+    deleteFoo(a,b,c){return;}
 }
 
 let instance = new Foo();
