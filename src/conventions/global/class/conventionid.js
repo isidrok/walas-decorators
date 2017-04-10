@@ -1,6 +1,15 @@
 import { ConventionBase } from '../../conventionbase';
 import { getProperties } from '../../utils';
 import { insertMeta, getMeta } from '../../../api';
+
+/**
+ * If the 'ids' property of the metainformation related to the class is empty,
+ * the attribute of the class called 'id' will be inserted in the 'ids' of the class.
+ * If there are not ids for the class an Error will be thrown.
+ * @export
+ * @class ConventionId
+ * @extends {ConventionBase}
+ */
 export class ConventionId extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);

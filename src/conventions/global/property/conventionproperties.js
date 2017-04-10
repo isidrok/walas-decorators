@@ -1,6 +1,14 @@
 import { ConventionBase } from '../../conventionbase';
 import { getProperties } from '../../utils';
 import { insertMeta } from '../../../api';
+
+/**
+ * Will add every property of a given entity into the properties
+ * of the metainformation with the form ['propertyName'] : {}
+ * @export
+ * @class ConventionProperties
+ * @extends {ConventionBase}
+ */
 export class ConventionProperties extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);
@@ -8,8 +16,8 @@ export class ConventionProperties extends ConventionBase {
     get property() {
         return 'properties';
     }
-    route(prop){
-        return this.property + prop;
+    route(prop) {
+        return this.property + '.' + prop;
     }
     exec() {
         let entityProperties = getProperties(this._entity);

@@ -1,6 +1,13 @@
 import { ConventionBase } from '../../conventionbase';
 import { getMeta } from '../../../api';
 
+/**
+ * If the type of a property is 'decimal' then by default
+ * the scale will be set to 10 and the precission to 2
+ * @export
+ * @class ConventionDecimal
+ * @extends {ConventionBase}
+ */
 export class ConventionDecimal extends ConventionBase {
     constructor(entity, meta) {
         super(entity, meta);
@@ -12,9 +19,11 @@ export class ConventionDecimal extends ConventionBase {
     exec() {
         let properties = getMeta(this._meta, this.properties);
         Object.keys(properties).forEach(prop => {
-            if (properties[prop].type === 'decimal') {
-                properties[prop].scale = properties[prop].scale || 10;
-                properties[prop].precission = properties[prop].precission || 2;
+            let props = properties[prop].property;
+            if (!props) return;
+            if (props.type === 'decimal') {
+                props.scale = props.scale || 10;
+                props.precission = props.precission || 2;
 
             }
         });

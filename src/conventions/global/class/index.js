@@ -1,3 +1,6 @@
 export * from './conventionid';
-export * from './conventiontable';
+export * from './conventionpath';
 export * from './conventionqueryable';
+export * from './conventionserialize';
+export * from './conventiontable';
+

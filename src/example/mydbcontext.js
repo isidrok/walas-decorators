@@ -1,17 +1,21 @@
+import { getMetaEntities } from '../conventions';
 import { DbContext, DbSet } from '../orm';
-import { ConventionId, ConventionProperties, ConventionTable, getMetaEntities } from '../conventions';
+import {
+    ConventionId, ConventionPath, ConventionQueryable, ConventionSerialize, ConventionTable,
+    ConventionAutoGet, ConventionDelete, ConventionDescription, ConventionGet, ConventionParams,
+    ConventionPatch, ConventionPost, ConventionPut, ConventionResponses, ConventionSummary,
+    ConventionDecimal, ConventionColumnDescription, ConventionProperties, ConventionString
+} from '../conventions';
 import { Foo } from './foo';
-import {Bar} from './bar';
+
 export class MyDbContext extends DbContext {
     constructor() {
         super();
-        this._conventions = [ConventionId, ConventionProperties, ConventionTable];
+        this._conventions = [ConventionId, ConventionPath, ConventionProperties, ConventionSerialize, ConventionTable, ConventionColumnDescription,
+        ConventionDecimal, ConventionString];
     }
     get Foo() {
         return new DbSet(Foo, this);
-    }
-    get Bar() {
-        return new DbSet(Bar, this);
     }
 
     configuration() {
@@ -19,6 +23,7 @@ export class MyDbContext extends DbContext {
         entities.forEach(entity => {
             this._conventions.map(convention => new convention(entity.entity, entity.meta).exec());
         });
-        console.log(entities);
+        let _meta = entities[0].meta
+        console.log(_meta);
     }
 }

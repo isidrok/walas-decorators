@@ -3,7 +3,7 @@ import { onlyOnClasses } from '../../utils';
 import { setMeta } from '../../../api';
 export const Private = function () {
     return function (target, key, descriptor) {
-        onlyOnClasses(descriptor, 'ignore');
+        onlyOnClasses(descriptor, 'Private');
         setMeta(target, `class.private`, true);
     };
 }
