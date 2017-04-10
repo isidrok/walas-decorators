@@ -1,6 +1,7 @@
 //usage: @CreateDate('columnName')
 /**
  * @export
+ * @example @CreateDate('columnName')
  */
 import { onlyOnClasses } from '../../utils';
 import { setMeta } from '../../../api';

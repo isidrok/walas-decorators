@@ -1,6 +1,7 @@
 //usage: @Schema('schema')
 /**
  * @export
+ * @example @Schema('schema')
  */
 import { onlyOnClasses } from '../../utils';
 import { setMeta } from '../../../api';

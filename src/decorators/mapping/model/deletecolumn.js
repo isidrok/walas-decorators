@@ -1,4 +1,8 @@
 //usage: @DeleteColumn('columnName')
+/**
+ * @export
+ * @example @DeleteColumn('columnName')
+ */
 import { onlyOnClasses } from '../../utils';
 import { setMeta } from '../../../api';
 export const DeleteColumn = function(...params) {

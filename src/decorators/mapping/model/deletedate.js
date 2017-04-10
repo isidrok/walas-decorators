@@ -1,4 +1,8 @@
 //usage: @DeleteDate('columnName')
+/**
+ * @export
+ * @example @DeleteDate('columnName')
+ */
 import { onlyOnClasses } from '../../utils';
 import { setMeta } from '../../../api';
 export const DeleteDate = function(...params) {

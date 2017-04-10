@@ -1,6 +1,7 @@
 //usage: @Hidden()
 /**
  * @export
+ * @example @Hidden()
  */
 import { onlyOnClasses } from '../../utils';
 import { setMeta } from '../../../api';
