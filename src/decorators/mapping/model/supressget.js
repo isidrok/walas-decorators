@@ -1,4 +1,8 @@
 //usage: @SupressGet()
+/**
+ * @export
+ * @example @SupressGet()
+ */
 import { onlyOnClasses } from '../../utils';
 import { setMeta } from '../../../api';
 export const SupressGet = function(...params) {

@@ -1,4 +1,8 @@
 //usage: @SupressDelete()
+/**
+ * @export
+ * @example @SupressDelete()
+ */
 import { onlyOnClasses } from '../../utils';
 import { setMeta } from '../../../api';
 export const SupressDelete = function(...params) {

@@ -1,4 +1,7 @@
 //usage: @Hidden()
+/**
+ * @export
+ */
 import { onlyOnClasses } from '../../utils';
 import { setMeta } from '../../../api';
 export const Hidden = function(...params) {

@@ -1,4 +1,7 @@
 //usage: @CreateDate('columnName')
+/**
+ * @export
+ */
 import { onlyOnClasses } from '../../utils';
 import { setMeta } from '../../../api';
 export const CreateDate = function(...params) {
