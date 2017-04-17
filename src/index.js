@@ -1,2 +1,2 @@
-export * from './conventons';
+export * from './conventions';
 export * from './decorators';

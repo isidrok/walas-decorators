@@ -4,14 +4,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _conventons = require('./conventons');
+var _conventions = require('./conventions');
 
-Object.keys(_conventons).forEach(function (key) {
+Object.keys(_conventions).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _conventons[key];
+      return _conventions[key];
     }
   });
 });
