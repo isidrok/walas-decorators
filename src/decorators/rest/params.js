@@ -1,5 +1,5 @@
 //usage: @Params('name','age') searchClientByNameAndAge(name,age){...}
-import { setMeta } from '../api';
+import { setMeta } from 'walas-meta-api';
 import { onlyOnMethods } from '../utils';
 export const Params = function (...params) {
     return function (target, key, descriptor) {

@@ -1,6 +1,6 @@
 //TODO Schema
 import { ConventionBase } from '../../conventionbase';
-import { insertMeta, getMeta } from '../../../api';
+import { insertMeta, getMeta } from 'walas-meta-api';
 
 /**
  * If the 'table' property of 'class.entity' is not set

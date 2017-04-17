@@ -1,5 +1,5 @@
 import { ConventionBase } from '../../conventionbase';
-import { getMeta } from '../../../api';
+import { getMeta } from 'walas-meta-api';
 
 /**
  * PRECONDITION: must be called after ConventionMethods, and 

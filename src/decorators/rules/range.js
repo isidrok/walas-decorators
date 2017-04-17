@@ -1,5 +1,5 @@
 //usage: @Range({min:15,max:70}) username;
-import { setMeta } from '../api';
+import { setMeta } from 'walas-meta-api';
 import { onlyOnProperties } from '../utils';
 
 export const Range = function(...params) {

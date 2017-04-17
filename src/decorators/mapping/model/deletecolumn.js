@@ -4,7 +4,7 @@
  * @example @DeleteColumn('columnName')
  */
 import { onlyOnClasses } from '../../utils';
-import { setMeta } from '../../../api';
+import { setMeta } from 'walas-meta-api';
 export const DeleteColumn = function(...params) {
     return function(target, key, descriptor) {
         onlyOnClasses(descriptor, 'DeleteColumn');

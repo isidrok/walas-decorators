@@ -1,5 +1,5 @@
 //usage: @Future() date;
-import { setMeta } from '../api';
+import { setMeta } from 'walas-meta-api';
 import { onlyOnProperties } from '../utils';
 
 export const Future = function() {

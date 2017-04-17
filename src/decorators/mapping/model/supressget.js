@@ -4,7 +4,7 @@
  * @example @SupressGet()
  */
 import { onlyOnClasses } from '../../utils';
-import { setMeta } from '../../../api';
+import { setMeta } from 'walas-meta-api';
 export const SupressGet = function(...params) {
     return function(target, key, descriptor) {
         onlyOnClasses(descriptor, 'SupressGet');

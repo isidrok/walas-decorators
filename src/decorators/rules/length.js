@@ -1,6 +1,6 @@
 //usage: @Length(65) name;
 //we assume it is the longest Length
-import { setMeta } from '../api';
+import { setMeta } from 'walas-meta-api';
 import { onlyOnProperties } from '../utils';
 
 export const Length = function(...params) {

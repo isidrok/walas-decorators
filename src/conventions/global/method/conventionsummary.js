@@ -1,5 +1,5 @@
 import { ConventionBase } from '../../conventionbase';
-import { insertMeta, getMeta } from '../../../api';
+import { insertMeta, getMeta } from 'walas-meta-api';
 
 /**
  * PRECONDITION: gets called after ConventionDescription

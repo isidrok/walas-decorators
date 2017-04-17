@@ -1,5 +1,5 @@
 import { ConventionBase } from '../../conventionbase';
-import { getMeta } from '../../../api';
+import { getMeta } from 'walas-meta-api';
 
 /**
  * If a property is of type 'string' then

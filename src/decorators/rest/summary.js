@@ -1,5 +1,5 @@
 //usage: @Summary('search client') searchClientByDni(dni){...}
-import { setMeta } from '../api';
+import { setMeta } from 'walas-meta-api';
 import { onlyOnMethods } from '../utils';
 export const Summary = function(...params) {
     return function(target, key, descriptor) {

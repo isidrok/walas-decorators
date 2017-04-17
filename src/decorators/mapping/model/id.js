@@ -1,7 +1,7 @@
 //usage: @id() dni;
 //or: @id(id1,id2) class Client {...}
 import { notOnMethods } from '../../utils';
-import { setMeta } from '../../api';
+import { setMeta } from 'walas-meta-api';
 export const Id = function (...params) {
     return function (target, key, descriptor) {
         notOnMethods(descriptor, 'id');

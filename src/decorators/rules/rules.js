@@ -1,5 +1,5 @@
 //usage: @rules(required,[max,50],notBlank) email;
-import { setMeta } from '../api';
+import { setMeta } from 'walas-meta-api';
 import { onlyOnProperties } from '../utils';
 
 export const Rules = function(...params) {

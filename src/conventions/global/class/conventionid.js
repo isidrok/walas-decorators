@@ -1,6 +1,6 @@
 import { ConventionBase } from '../../conventionbase';
 import { getProperties } from '../../utils';
-import { insertMeta, getMeta } from '../../../api';
+import { insertMeta, getMeta } from 'walas-meta-api';
 
 /**
  * If the 'ids' property of the metainformation related to the class is empty,
