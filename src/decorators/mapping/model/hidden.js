@@ -1,12 +1,8 @@
-//usage: @Hidden()
-/**
- * @export
- */
-import { onlyOnClasses } from '../../utils';
-import { setMeta } from '../../../api';
-export const Hidden = function(...params) {
+import { check } from '../../utils';
+import { setMeta } from 'walas-meta-api';
+export const Hidden = function() {
     return function(target, key, descriptor) {
-        onlyOnClasses(descriptor, 'Hidden');
+        check.onlyOnClasses(descriptor, 'Hidden');
         setMeta(target, 'class.hidden', true);
     };
 }

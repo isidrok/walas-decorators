@@ -1,9 +1,10 @@
 //usage: @Get('/:id?') searchClientById(id){...}
-import { setMeta } from '../api';
-import { onlyOnMethods } from '../utils';
+//or @get({url:'/:id?', params:['id','name']})
+import { setMeta } from 'walas-meta-api';
+import { check } from '../utils';
 export const setVerbsMeta = function(target, key, descriptor, verb, params) {
-    onlyOnMethods(descriptor, verb);
-    let value = typeof params[0] === 'object' ? params[0] : { url: params[0] };
+    check.onlyOnMethods(descriptor, verb);
+    let value = (typeof params[0] === 'object' ? params[0] : { url: params[0] });
     value.verb = verb;
     setMeta(target, `methods.${key}.${verb}`, value);
 }

@@ -1,12 +1,9 @@
 //usage: @Schema('schema')
-/**
- * @export
- */
-import { onlyOnClasses } from '../../utils';
-import { setMeta } from '../../../api';
+import { check } from '../../utils';
+import { setMeta } from 'walas-meta-api';
 export const Schema = function(...params) {
     return function(target, key, descriptor) {
-        onlyOnClasses(descriptor, 'Schema');
-        setMeta(target, 'class.entity', params[0]);
+        check.onlyOnClasses(descriptor, 'Schema');
+        setMeta(target, 'class.entity.schema', params[0]);
     };
 }

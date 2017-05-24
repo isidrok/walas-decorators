@@ -1,9 +1,9 @@
 // usage: class Bill { @hasOne(Client) client; ...}
-import { setMeta } from '../../api';
-import { onlyOnProperties } from '../../utils';
+import { setMeta } from 'walas-meta-api';
+import { check } from '../../utils';
 export const HasOne = function (...params) {
     return function (target, key, descriptor) {
-        onlyOnProperties(descriptor, 'hasOne');
+        check.onlyOnProperties(descriptor, 'hasOne');
         setMeta(target, `properties.${key}.hasOne`, params[0]);
     };
 }

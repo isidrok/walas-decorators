@@ -1,9 +1,9 @@
 // usage: class Client { @hasMany(Bill) bills; ...}
-import { setMeta } from '../../api';
-import { onlyOnProperties } from '../../utils';
+import { setMeta } from 'walas-meta-api';
+import { check } from '../../utils';
 export const HasMany = function (...params) {
     return function (target, key, descriptor) {
-        onlyOnProperties(descriptor, 'hasMany');
+        check.onlyOnProperties(descriptor, 'hasMany');
         setMeta(target, `properties.${key}.hasMany`, params[0]);
     };
 }

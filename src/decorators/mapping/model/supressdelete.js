@@ -1,13 +1,9 @@
 //usage: @SupressDelete()
-/**
- * @export
- * @example @SupressDelete()
- */
-import { onlyOnClasses } from '../../utils';
-import { setMeta } from '../../../api';
-export const SupressDelete = function(...params) {
+import { check } from '../../utils';
+import { setMeta } from 'walas-meta-api';
+export const SupressDelete = function() {
     return function(target, key, descriptor) {
-        onlyOnClasses(descriptor, 'SupressDelete');
+        check.onlyOnClasses(descriptor, 'SupressDelete');
         setMeta(target, 'class.generators.supressDelete', true);
     };
 }
