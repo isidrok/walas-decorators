@@ -1,9 +1,9 @@
 //usage: @private() class Foo {...};
-import { check } from '../../utils';
-import { setMeta } from 'walas-meta-api';
+import { onlyOnClasses } from '../../utils';
+import { setMeta } from '../../../api';
 export const Private = function () {
     return function (target, key, descriptor) {
-        check.onlyOnClasses(descriptor, 'Private');
+        onlyOnClasses(descriptor, 'Private');
         setMeta(target, `class.private`, true);
     };
 }

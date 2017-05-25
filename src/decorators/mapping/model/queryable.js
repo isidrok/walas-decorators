@@ -1,9 +1,9 @@
 //usage: @Queryable(Bar) class Foo {...};
-import { check } from '../../utils';
-import { setMeta } from 'walas-meta-api';
+import { onlyOnClasses } from '../../utils';
+import { setMeta } from '../../api';
 export const Queryable = function(...params) {
     return function(target, key, descriptor) {
-        check.onlyOnClasses(descriptor, 'Queryable');
+        onlyOnClasses(descriptor, 'Queryable');
         setMeta(target, `class.queryable`, [target.name].concat(params));
     };
 }

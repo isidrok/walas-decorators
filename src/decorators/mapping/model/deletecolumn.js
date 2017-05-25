@@ -1,9 +1,9 @@
 //usage: @DeleteColumn('columnName')
-import { check } from '../../utils';
-import { setMeta } from 'walas-meta-api';
+import { onlyOnClasses } from '../../utils';
+import { setMeta } from '../../../api';
 export const DeleteColumn = function(...params) {
     return function(target, key, descriptor) {
-        check.onlyOnClasses(descriptor, 'DeleteColumn');
+        onlyOnClasses(descriptor, 'DeleteColumn');
         setMeta(target, 'class.generators.deleteColumn', params[0]);
     };
 }

@@ -1,9 +1,13 @@
 //usage: @UpdateDate('columnName')
-import { check } from '../../utils';
-import { setMeta } from 'walas-meta-api';
+/**
+ * @export
+ * @example: @UpdateDate('columnName')
+ */
+import { onlyOnClasses } from '../../utils';
+import { setMeta } from '../../../api';
 export const UpdateDate = function(...params) {
     return function(target, key, descriptor) {
-        check.onlyOnClasses(descriptor, 'UpdateDate');
+        onlyOnClasses(descriptor, 'UpdateDate');
         setMeta(target, 'class.generators.updateDate', params[0]);
     };
 }

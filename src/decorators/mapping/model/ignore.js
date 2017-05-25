@@ -1,9 +1,10 @@
 //usage: @Ignore() password;
-import { check } from '../../utils';
-import { setMeta } from 'walas-meta-api';
+import { onlyOnProperties } from '../../utils';
+import { setMeta } from '../../api';
 export const Ignore = function() {
     return function(target, key, descriptor) {
-        check.onlyOnProperties(descriptor, 'Ignore');
+        onlyOnProperties(descriptor, 'Ignore');
+        //Properties + methods?
         setMeta(target, `properties.${key}.ignore`, true);
     };
 }

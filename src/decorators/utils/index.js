@@ -1,2 +1,5 @@
 export * from './helpersource';
-export * from './check';
+export * from './helpervalidations';
+export * from './insertonclass';
+export * from './insertonmethods';
+export * from './insertonproperties';

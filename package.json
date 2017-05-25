@@ -23,8 +23,5 @@
     "babel-plugin-transform-class-properties": "^6.5.2",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.5.0"
-  },
-  "dependencies": {
-    "walas-meta-api": "git+https://github.com/isidrok/walas-meta-api.git"
   }
 }

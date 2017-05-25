@@ -1,9 +1,13 @@
 //usage: @SupressGet()
-import { check } from '../../utils';
-import { setMeta } from 'walas-meta-api';
-export const SupressGet = function() {
+/**
+ * @export
+ * @example @SupressGet()
+ */
+import { onlyOnClasses } from '../../utils';
+import { setMeta } from '../../../api';
+export const SupressGet = function(...params) {
     return function(target, key, descriptor) {
-        check.onlyOnClasses(descriptor, 'SupressGet');
+        onlyOnClasses(descriptor, 'SupressGet');
         setMeta(target, 'class.generators.supressGet', true);
     };
 }

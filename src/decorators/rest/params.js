@@ -1,11 +1,12 @@
 //usage: @Params('name','age') searchClientByNameAndAge(name,age){...}
-import { setMeta } from 'walas-meta-api';
-import { check } from '../utils';
+import { setMeta } from '../api';
+import { onlyOnMethods } from '../utils';
 export const Params = function (...params) {
     return function (target, key, descriptor) {
-        check.onlyOnMethods(descriptor, 'Params');
+        onlyOnMethods(descriptor, 'Params');
         params.forEach(param => {
-            setMeta(target, `methods.${key}.params.${param}`, {});
+            let paramName = Object.keys(param)[0];
+            setMeta(target, `methods.${key}.params.${paramName}`, param[paramName]);
         });
     };
 }
