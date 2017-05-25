@@ -1,6 +1,6 @@
 import { ConventionBase } from '../../conventionbase';
 import { getProperties } from '../../utils';
-import { insertMeta } from '../../../api';
+import { insertMeta } from 'walas-meta-api';
 
 /**
  * Will add every property of a given entity into the properties

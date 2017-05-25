@@ -1,4 +1,4 @@
-import { META } from '../../api'
+import { META } from 'walas-meta-api'
 export const getMetaEntities = function (dbContext) {
     let instance = new dbContext();
     return Object.entries(Object.getOwnPropertyDescriptors(dbContext.prototype))

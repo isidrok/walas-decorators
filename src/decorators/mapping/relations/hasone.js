@@ -1,5 +1,5 @@
 // usage: class Bill { @hasOne(Client) client; ...}
-import { setMeta } from '../../api';
+import { setMeta } from 'walas-meta-api';
 import { onlyOnProperties } from '../../utils';
 export const HasOne = function (...params) {
     return function (target, key, descriptor) {

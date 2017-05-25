@@ -1,6 +1,6 @@
 //TODO needs a lot of refactoring
 import { ConventionBase } from '../../conventionbase';
-import { getMeta } from '../../../api';
+import { getMeta } from 'walas-meta-api';
 import { getMethods } from '../../utils';
 
 /**

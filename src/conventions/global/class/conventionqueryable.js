@@ -1,5 +1,5 @@
 import { ConventionBase } from '../../conventionbase';
-import { insertMeta, getMeta } from '../../../api';
+import { insertMeta, getMeta } from 'walas-meta-api';
 
 /**
  * Inserts in class.queryable the name of all queryable entities

@@ -1,5 +1,5 @@
 //usage: @Min(20) name;
-import { setMeta } from '../api';
+import { setMeta } from 'walas-meta-api';
 import { onlyOnProperties } from '../utils';
 
 export const Min = function(...params) {

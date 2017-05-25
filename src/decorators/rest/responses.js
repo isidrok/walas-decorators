@@ -1,5 +1,5 @@
 //usage: @Responses( {'200':'Ok','400':'Error'}) searchClientById(id){...}
-import { setMeta } from '../api';
+import { setMeta } from 'walas-meta-api';
 import { onlyOnMethods } from '../utils';
 export const Responses = function (...params) {
     return function (target, key, descriptor) {

@@ -1,5 +1,5 @@
 //usage: @Max(50) password;
-import { setMeta } from '../api';
+import { setMeta } from 'walas-meta-api';
 import { onlyOnProperties } from '../utils';
 
 export const Max = function(...params) {

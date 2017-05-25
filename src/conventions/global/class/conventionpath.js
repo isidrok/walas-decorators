@@ -1,6 +1,6 @@
 import { plural } from 'pluralize';
 import { ConventionBase } from '../../conventionbase';
-import { insertMeta, getMeta } from '../../../api';
+import { insertMeta, getMeta } from 'walas-meta-api';
 
 /**
  * If the metainformation of the class does not have a path it will be build

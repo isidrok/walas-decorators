@@ -1,6 +1,6 @@
 import { ConventionBase } from '../../conventionbase';
 import { getMethods } from '../../utils';
-import { insertMeta } from '../../../api';
+import { insertMeta } from 'walas-meta-api';
 
 /**
  * Will add every method of a given entity into the methods

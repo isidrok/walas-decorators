@@ -1,5 +1,5 @@
 import { ConventionBase } from '../../conventionbase';
-import { insertMeta, getMeta } from '../../../api';
+import { insertMeta, getMeta } from 'walas-meta-api';
 
 /**
  * If the class is not flagged with 'supressGet' then
