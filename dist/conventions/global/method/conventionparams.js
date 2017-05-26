@@ -121,7 +121,7 @@ var ConventionParams = exports.ConventionParams = function (_ConventionBase) {
         value: function exec() {
             var _this3 = this;
 
-            var methods = (0, _walasMetaApi.getMeta)(this._meta, this.methods);
+            var methods = (0, _walasMetaApi.getMeta)(this._meta, this.methods) || {};
             Object.keys(methods).forEach(function (key) {
                 var callParams = _this3.getCallParams(key);
                 var method = methods[key];

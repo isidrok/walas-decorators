@@ -47,7 +47,7 @@ var ConventionPatch = exports.ConventionPatch = function (_ConventionBase) {
         value: function exec() {
             var _this2 = this;
 
-            var methods = (0, _walasMetaApi.getMeta)(this._meta, this.route);
+            var methods = (0, _walasMetaApi.getMeta)(this._meta, this.route) || {};
             Object.keys(methods).forEach(function (key) {
                 if (key.startsWith('patch') && !methods[key].verb) {
                     var route = _this2.route + '.' + key;

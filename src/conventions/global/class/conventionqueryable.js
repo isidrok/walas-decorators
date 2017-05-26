@@ -20,12 +20,12 @@ export class ConventionQueryable extends ConventionBase {
         return 'properties';
     }
     exec() {
-        let queryables = getMeta(this._meta, this.route);
+        let queryables = getMeta(this._meta, this.route) || [];
         let properties = getMeta(this._meta, this.properties) || {};
         Object.keys(properties).forEach(key => {
             let relation = properties[key].hasMany || properties[key].hasOne;
             if (relation && queryables.indexOf(relation) === -1)
-                insertMeta(this._meta, this.route, relation, true);
+                insertMeta(this._meta, this.route, relation.name, true);
         });
         if (queryables.indexOf(this._entity.name) === -1)
         insertMeta(this._meta, this.route, this._entity.name, true);

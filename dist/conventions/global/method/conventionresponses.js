@@ -84,7 +84,7 @@ var ConventionResponses = exports.ConventionResponses = function (_ConventionBas
         value: function exec() {
             var _this2 = this;
 
-            var methods = (0, _walasMetaApi.getMeta)(this._meta, this.methods);
+            var methods = (0, _walasMetaApi.getMeta)(this._meta, this.methods) || {};
             Object.keys(methods).forEach(function (key) {
                 var method = methods[key];
                 _this2.handle(method);

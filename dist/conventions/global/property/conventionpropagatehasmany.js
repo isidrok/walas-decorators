@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.ConventionDescription = undefined;
+exports.ConventionPropagateHasMany = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _conventionbase = require('../../conventionbase');
-
 var _walasMetaApi = require('walas-meta-api');
+
+var _conventionbase = require('../../conventionbase');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -18,56 +18,47 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * PRECONDITION: gets called after applying ConventionMethods
- * If the method doesn't have a description then its name
- * will be used, transforming it from cammel or dash case 
- * to a phrase starting in upper case.
+ * If there is a relation HasMany then that entity must have
+ * a new property that referecences the id of the actual entity.
  * @export
- * @class ConventionDescription
+ * @class ConventionDecimal
  * @extends {ConventionBase}
  */
-var ConventionDescription = exports.ConventionDescription = function (_ConventionBase) {
-    _inherits(ConventionDescription, _ConventionBase);
+var ConventionPropagateHasMany = exports.ConventionPropagateHasMany = function (_ConventionBase) {
+    _inherits(ConventionPropagateHasMany, _ConventionBase);
 
-    function ConventionDescription(entity, meta) {
-        _classCallCheck(this, ConventionDescription);
+    function ConventionPropagateHasMany(entity, meta) {
+        _classCallCheck(this, ConventionPropagateHasMany);
 
-        return _possibleConstructorReturn(this, (ConventionDescription.__proto__ || Object.getPrototypeOf(ConventionDescription)).call(this, entity, meta));
+        return _possibleConstructorReturn(this, (ConventionPropagateHasMany.__proto__ || Object.getPrototypeOf(ConventionPropagateHasMany)).call(this, entity, meta));
     }
 
-    _createClass(ConventionDescription, [{
-        key: 'createMethod',
-        value: function createMethod(method, name) {
-            function parseName() {
-                name = name.replace(/([A-Z])/g, function ($1) {
-                    return " " + $1.toLowerCase();
-                }).replace(/([-_])/g, function ($1) {
-                    return " ";
-                });
-                return name.charAt(0).toUpperCase() + name.slice(1);
-            }
-            method.description = parseName();
-            return method;
+    _createClass(ConventionPropagateHasMany, [{
+        key: 'createProperty',
+        value: function createProperty(relation) {
+            var mainId = this._entity.name.toLowerCase() + 'Id';
+            Object.defineProperty(relation.prototype, mainId, {
+                enumerable: true,
+                writable: true
+            });
         }
     }, {
         key: 'exec',
         value: function exec() {
             var _this2 = this;
 
-            var methods = (0, _walasMetaApi.getMeta)(this._meta, this.route) || {};
-            Object.keys(methods).forEach(function (key) {
-                if (!methods[key].description) {
-                    var route = _this2.route + '.' + key;
-                    (0, _walasMetaApi.insertMeta)(_this2._meta, route, _this2.createMethod(methods[key], key));
-                }
+            var properties = (0, _walasMetaApi.getMeta)(this._meta, this.properties) || {};
+            Object.keys(properties).forEach(function (key) {
+                var relation = properties[key].hasMany;
+                if (relation) _this2.createProperty(relation);
             });
         }
     }, {
-        key: 'route',
+        key: 'properties',
         get: function get() {
-            return 'methods';
+            return 'properties';
         }
     }]);
 
-    return ConventionDescription;
+    return ConventionPropagateHasMany;
 }(_conventionbase.ConventionBase);

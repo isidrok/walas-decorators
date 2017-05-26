@@ -23,7 +23,7 @@ export class ConventionPut extends ConventionBase {
         return method;
     }
     exec() {
-        let methods = getMeta(this._meta, this.route);
+        let methods = getMeta(this._meta, this.route) || {};
         Object.keys(methods).forEach(key => {
             if (key.startsWith('put') && !methods[key].verb) {
                 let route = this.route + '.'+ key;

@@ -64,7 +64,7 @@ export class ConventionResponses extends ConventionBase {
         method.responses = responses;
     }
     exec() {
-        let methods = getMeta(this._meta, this.methods);
+        let methods = getMeta(this._meta, this.methods) || {};
         Object.keys(methods).forEach(key => {
             let method = methods[key];
             this.handle(method);

@@ -39,11 +39,11 @@ var ConventionQueryable = exports.ConventionQueryable = function (_ConventionBas
         value: function exec() {
             var _this2 = this;
 
-            var queryables = (0, _walasMetaApi.getMeta)(this._meta, this.route);
+            var queryables = (0, _walasMetaApi.getMeta)(this._meta, this.route) || [];
             var properties = (0, _walasMetaApi.getMeta)(this._meta, this.properties) || {};
             Object.keys(properties).forEach(function (key) {
                 var relation = properties[key].hasMany || properties[key].hasOne;
-                if (relation && queryables.indexOf(relation) === -1) (0, _walasMetaApi.insertMeta)(_this2._meta, _this2.route, relation, true);
+                if (relation && queryables.indexOf(relation) === -1) (0, _walasMetaApi.insertMeta)(_this2._meta, _this2.route, relation.name, true);
             });
             if (queryables.indexOf(this._entity.name) === -1) (0, _walasMetaApi.insertMeta)(this._meta, this.route, this._entity.name, true);
         }

@@ -89,7 +89,7 @@ export class ConventionParams extends ConventionBase {
         });
     }
     exec() {
-        let methods = getMeta(this._meta, this.methods);
+        let methods = getMeta(this._meta, this.methods) || {};
         Object.keys(methods).forEach(key => {
             let callParams = this.getCallParams(key);
             let method = methods[key];

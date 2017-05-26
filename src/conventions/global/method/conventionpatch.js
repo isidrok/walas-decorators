@@ -23,7 +23,7 @@ export class ConventionPatch extends ConventionBase {
         return method;
     }
     exec() {
-        let methods = getMeta(this._meta, this.route);
+        let methods = getMeta(this._meta, this.route) || {};
         Object.keys(methods).forEach(key => {
             if (key.startsWith('patch') && !methods[key].verb) {
                 let route = this.route + '.'+ key;

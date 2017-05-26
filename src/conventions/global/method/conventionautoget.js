@@ -30,7 +30,7 @@ export class ConventionAutoGet extends ConventionBase {
         insertMeta(this._meta, property, getAll);
     }
     exec() {
-        let supressGet
+        let supressGet;
         let generators = getMeta(this._meta, this.generators);
         if (generators)
             supressGet = Object.keys(generators).filter(c => c === 'supressGet')[0];

@@ -21,7 +21,7 @@ export class ConventionSummary extends ConventionBase {
         return method;
     }
     exec() {
-        let methods = getMeta(this._meta, this.route);
+        let methods = getMeta(this._meta, this.route) || {};
         Object.keys(methods).forEach(key => {
             if (!methods[key].summary) {
                 let route = this.route + '.' + key;
